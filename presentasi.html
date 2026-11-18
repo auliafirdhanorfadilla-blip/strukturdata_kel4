@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="id"><head><meta charset="utf-8"><title>Presentasi NGEKOSIN</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Georgia,'Times New Roman',serif;background:#F7F2E9;color:#2B2620}
+.slide{display:none;min-height:100vh;padding:46px 58px;position:relative}
+.slide.active{display:block;animation:muncul .3s}
+@keyframes muncul{from{opacity:0}to{opacity:1}}
+/* Dekorasi kertas, bukan blob AI */
+.slide::before{content:'NGEKOSIN';position:absolute;top:22px;right:28px;font-family:Arial;font-size:11px;letter-spacing:3px;color:#A8A29E;border:1px solid #D6D3D1;padding:6px 10px;border-radius:20px}
+h1{font-size:52px;line-height:1.15;margin:14px 0;color:#292524;font-weight:700}
+h2{font-size:36px;color:#44403C;margin:0 0 18px;border-bottom:2px solid #D6D3D1;padding-bottom:10px}
+h2 span{color:#78716C}
+p,li{font-size:21px;line-height:1.65;font-family:Arial,sans-serif}
+li{margin-bottom:10px}
+.tag{background:#292524;color:#F7F2E9;padding:8px 14px;border-radius:6px;font-size:13px;font-weight:700;font-family:Arial;letter-spacing:1px}
+.sub{color:#57534E;font-size:20px;font-family:Arial}
+.kartu{background:#FFFBEB;border:1px solid #E7E5E4;border-left:5px solid #A8A29E;border-radius:8px;padding:18px 20px;margin:13px 0}
+.kartu.biru{background:#F5F5F4;border-left-color:#78716C}
+.kartu.hijau{background:#F0FDF4;border-left-color:#4D7C0F}
+.kartu b{color:#292524;font-size:21px;font-family:Arial}
+.kode{background:#292524;color:#E7E5E4;border-radius:8px;padding:20px;font-family:Consolas,monospace;font-size:18px;line-height:1.7}
+.kode span{color:#A8A29E}
+img{width:100%;height:270px;object-fit:cover;border-radius:8px;border:6px solid #fff;box-shadow:0 4px 14px rgba(0,0,0,.12)}
+.grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
+.grid div{background:#fff;padding:18px;border-radius:8px;border:1px solid #E7E5E4;border-top:4px solid #A8A29E}
+.grid div:nth-child(2){border-top-color:#4D7C0F} .grid div:nth-child(3){border-top-color:#92400E}
+.grid div:nth-child(4){border-top-color:#57534E} .grid div:nth-child(5){border-top-color:#78716C}
+.grid div:nth-child(6){border-top-color:#A8A29E}
+.grid b{font-size:19px;font-family:Arial} .grid p{font-size:17px;color:#57534E;font-family:Arial}
+button{position:fixed;bottom:20px;padding:12px 20px;font-size:15px;cursor:pointer;border-radius:8px;font-weight:700;font-family:Arial;z-index:10}
+#prev{left:20px;background:#fff;color:#292524;border:1px solid #D6D3D1} #next{right:20px;background:#292524;color:#fff;border:0}
+.no{position:fixed;top:18px;left:22px;background:#fff;padding:7px 12px;border-radius:20px;font-weight:700;color:#57534E;font-family:Arial;font-size:13px;border:1px solid #E7E5E4;z-index:10}
+.footer{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);color:#A8A29E;font-size:12px;font-family:Arial}
+@media(max-width:700px){.slide{padding:28px 22px} h1{font-size:34px} h2{font-size:26px} p,li{font-size:18px} .grid{grid-template-columns:1fr}}
+</style></head><body>
+<div class="no" id="nomor">1 / 8</div>
+
+<div class="slide active">
+<span class="tag">TUGAS STRUKTUR DATA • KELOMPOK 4</span>
+<h1>NGEKOSIN<br>Aplikasi Pemesanan<br>Penginapan dan Kos</h1>
+<p class="sub">Cari kos, bandingin harga, dan pesan kamar — semuanya bisa dari HP, tanpa harus keliling dulu.</p>
+<div class="kartu biru"><b>Dibuat Dengan</b><br><span style="font-family:Arial;color:#57534E">HTML • CSS • JavaScript • LocalStorage • Tanpa Server</span></div>
+<p style="font-size:17px;color:#78716C;font-family:Arial">Nama Anggota: Aulia Firdha Norfadilla &nbsp;|&nbsp; NIM: 312510186</p>
+<p style="font-size:17px;color:#78716C;font-family:Arial">Nama Anggota: Dyah Triastini &nbsp;|&nbsp; NIM: 312510166</p>
+</div>
+
+<div class="slide">
+<h2>1. Kenapa Kami <span>Bikin Aplikasi Ini?</span></h2>
+<p>Karena cari kos sekarang masih ribet:</p>
+<ul>
+<li>Masih harus keliling dari kos ke kos, capek dan buang waktu.</li>
+<li>Foto yang dikirim di WA kadang beda jauh sama kondisi aslinya.</li>
+<li>Harga nggak jelas, kadang ada biaya tambahan dari perantara.</li>
+<li>Pesan masih lewat chat doang, nggak ada catatan pesanan yang rapi.</li>
+</ul>
+<div class="kartu"><b>Jadi, solusi kami:</b><br><span style="font-family:Arial">Bikin satu website tempat semua data kos ngumpul. Ada foto, harga, dan fasilitasnya yang jelas, plus bisa langsung pesan di situ.</span></div>
+</div>
+
+<div class="slide">
+<h2>2. Apa Saja <span>Fiturnya?</span></h2>
+<div class="grid">
+<div><b>Beranda</b><p>Lihat kos yang paling banyak dicari, berdasarkan rating.</p></div>
+<div><b>Cari Kos</b><p>Cari pakai nama kos atau lokasi, langsung muncul hasilnya.</p></div>
+<div><b>Filter & Urutkan</b><p>Saring berdasarkan harga dan tipe, urutkan dari yang paling murah.</p></div>
+<div><b>Detail & Booking</b><p>Lihat fasilitas lengkap, isi formulir, langsung ke-booking.</p></div>
+<div><b>Pesanan Saya</b><p>Semua pesanan tersimpan di satu tempat, bisa dibatalkan juga.</p></div>
+<div><b>Daftarkan Kos</b><p>Buat pemilik kos, bisa nambahin kosnya sendiri ke aplikasi.</p></div>
+</div>
+</div>
+
+<div class="slide">
+<h2>3. Struktur Data <span>yang Kami Pakai</span></h2>
+<div class="kartu"><b>1. Array</b><br><span style="font-family:Arial">Buat nyimpen daftar kos dan daftar pesanan. Ibaratnya kayak rak, satu rak isinya satu kos.</span></div>
+<div class="kartu biru"><b>2. Searching - Linear Search</b><br><span style="font-family:Arial">Buat nyari kos. Caranya dicek satu per satu dari atas sampai ketemu yang cocok sama kata kunci.</span></div>
+<div class="kartu hijau"><b>3. Sorting - Bubble Sort</b><br><span style="font-family:Arial">Buat ngurutin harga. Dua harga yang bersebelahan dibandingin, kalau kebalik ditukar, diulang sampai rapi.</span></div>
+<div class="kartu"><b>4. Queue - FIFO</b><br><span style="font-family:Arial">Buat antrian pesanan. Siapa yang pesan duluan, dia yang dilayani duluan.</span></div>
+</div>
+
+<div class="slide">
+<h2>4. Contoh <span>Kodingnya</span></h2>
+<p>Ini contoh kode untuk fitur pencarian:</p>
+<div class="kode">
+<span>// Linear Search: dicek satu per satu</span><br>
+for (let k of kos) {<br>
+&nbsp;&nbsp;if (k.nama.includes(key) || k.lokasi.includes(key))<br>
+&nbsp;&nbsp;&nbsp;&nbsp;hasil.push(k); <span>// kalau cocok, masuk ke hasil</span><br>
+}
+</div>
+<p style="margin-top:16px">Untuk sorting-nya kami pakai Bubble Sort: bandingkan dua data yang bersebelahan, tukar kalau urutannya belum pas.</p>
+</div>
+
+<div class="slide">
+<h2>5. Alur Pakainya <span>Gimana?</span></h2>
+<div class="kartu"><b>Langkah 1:</b> <span style="font-family:Arial">Buka Beranda, lihat daftar kos yang tersedia.</span></div>
+<div class="kartu biru"><b>Langkah 2:</b> <span style="font-family:Arial">Cari kos yang diinginkan, lalu urutkan berdasarkan harga kalau perlu.</span></div>
+<div class="kartu hijau"><b>Langkah 3:</b> <span style="font-family:Arial">Buka detail kos, isi formulir, sistem langsung hitung total dan diskonnya.</span></div>
+<div class="kartu"><b>Langkah 4:</b> <span style="font-family:Arial">Pesanan masuk ke antrian, dan bisa dilihat di menu Pesanan Saya.</span></div>
+</div>
+
+<div class="slide">
+<h2>6. Coba <span>Langsung Demo-nya</span></h2>
+<img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=1000&q=80">
+<p><b>Cara demonya:</b><br>
+1. Buka Beranda → 2. Cari "Cikarang" → 3. Urutkan Harga Termurah → 4. Klik satu kos → 5. Isi nama, pilih 6 bulan, lihat diskonnya → 6. Klik Pesan, cek di Pesanan Saya.</p>
+<p style="color:#57534E;font-weight:700">Setelah ini, kami tampilkan langsung aplikasinya lewat file index.html.</p>
+</div>
+
+<div class="slide">
+<h2>7. Kesimpulan</h2>
+<ul>
+<li>NGEKOSIN bikin cari dan pesan kos jadi lebih gampang dan cepat.</li>
+<li>Array cocok dipakai karena datanya bisa bertambah dan berkurang dengan mudah.</li>
+<li>Linear Search pas untuk data yang belum terurut dan jumlahnya belum terlalu besar.</li>
+<li>Bubble Sort bikin harga jadi gampang dibandingin.</li>
+<li>Queue bikin pesanan jadi adil, siapa cepat dia dapat.</li>
+</ul>
+<div class="kartu hijau"><b>Terima Kasih</b><br><span style="font-family:Arial">Terima kasih atas perhatian Bapak/Ibu Dosen dan teman-teman semua. Kami siap kalau ada pertanyaan atau masukan.</span></div>
+</div>
+
+<button id="prev" onclick="move(-1)">← Sebelumnya</button>
+<button id="next" onclick="move(1)">Berikutnya →</button>
+<div class="footer">NGEKOSIN • Aplikasi Pemesanan Penginapan dan Kos • HTML • CSS • JavaScript</div>
+<script>
+let cur=0, slides=document.querySelectorAll('.slide');
+function move(n){ slides[cur].classList.remove('active'); cur=(cur+n+slides.length)%slides.length; slides[cur].classList.add('active'); document.getElementById('nomor').textContent=(cur+1)+' / '+slides.length; }
+document.addEventListener('keydown',e=>{ if(e.key=='ArrowRight') move(1); if(e.key=='ArrowLeft') move(-1); });
+</script></body></html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NGEKOSIN - Cari Kos & Penginapan</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-overlay"></div>
+  <div class="hero-text">
+    <span class="tag">📍 CIKARANG • BEKASI • JAKARTA</span>
+    <h1>Cari kos gak pake<br>ribet lagi.</h1>
+    <p>Lihat foto aslinya, bandingkan harganya,<br>pesan langsung dari HP. Tanpa calo.</p>
+    <div class="search-box">
+      <input id="cariHome" placeholder="Cari: Cikarang, Kos Putri, AC..." oninput="cariDariHome()">
+      <button onclick="pindah('cari')">🔍 Cari</button>
+    </div>
+    <div class="hero-stat"><b>120+ Kos</b> • <b>4.8 ★</b> • <b>2.340 orang</b> sudah ngekos lewat sini</div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <!-- HALAMAN 1: BERANDA -->
+  <section id="page-beranda" class="page active">
+    <div class="section-head"><h2>Kos Populer di Cikarang 🔥</h2><span onclick="pindah('cari')">Lihat Semua →</span></div>
+    <div id="listPopuler" class="grid-kos"></div>
+
+    <div class="banner">
+      <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=800&q=80">
+      <div><span>💡 BUAT PEMILIK KOS</span><h3>Punya kos kosong?</h3><p>Daftarin kos kamu di sini, biar cepet laku. Gratis!</p><button onclick="pindah('tambah')">+ Daftarkan Kos</button></div>
+    </div>
+
+    <div class="section-head"><h2>Kenapa NGEKOSIN?</h2></div>
+    <div class="grid3">
+      <div class="alasan"><b>📸 Foto Asli</b><p>Fotonya dari pemilik langsung, bukan foto Google. Jadi gak ketipu.</p></div>
+      <div class="alasan"><b>💰 Tanpa Calo</b><p>Harga yang kamu lihat, harga yang kamu bayar. Gak ada biaya siluman.</p></div>
+      <div class="alasan"><b>⚡ Pesan 1 Menit</b><p>Pilih kamar, isi data, langsung ke-booking. Gak perlu survey dulu.</p></div>
+    </div>
+  </section>
+
+  <!-- HALAMAN 2: CARI KOS -->
+  <section id="page-cari" class="page">
+    <h2>Cari Kos & Penginapan</h2>
+    <p class="muted">Ada <b id="jmlKos">0</b> kos yang tersedia.</p>
+    <div class="filter-bar">
+      <input id="cari" placeholder="Cari nama kos / lokasi..." oninput="tampil()">
+      <select id="filterHarga" onchange="tampil()"><option value="">Semua Harga</option><option value="murah">Di bawah 1 Juta</option><option value="sedang">1 - 1,5 Juta</option><option value="mahal">Di atas 1,5 Juta</option></select>
+      <select id="filterTipe" onchange="tampil()"><option value="">Semua Tipe</option><option>Putra</option><option>Putri</option><option>Campur</option></select>
+      <select id="urut" onchange="tampil()"><option value="">Urutkan...</option><option value="harga">Harga Termurah</option><option value="nama">Nama A-Z</option></select>
+    </div>
+    <div id="list" class="grid-kos"></div>
+    <div id="kosong" class="kosong" style="display:none">😢 Kos-nya gak ketemu. Coba ganti kata pencariannya.</div>
+  </section>
+
+  <!-- HALAMAN 3: DETAIL + PESAN -->
+  <section id="page-detail" class="page">
+    <button class="btn-back" onclick="pindah('cari')">← Kembali</button>
+    <div id="detailIsi"></div>
+    <div class="box">
+      <h3>📝 Form Pemesanan</h3>
+      <p class="muted small">Isi ini buat booking kamar. Nanti muncul di menu Pesanan Saya.</p>
+      <label>Nama lengkap kamu</label><input id="bNama" placeholder="Contoh: Andi Pratama">
+      <label>Nomor WA</label><input id="bHp" placeholder="0812...">
+      <label>Tanggal mau masuk</label><input type="date" id="bTanggal">
+      <label>Mau ngekos berapa lama?</label>
+      <select id="bDurasi"><option value="1">1 Bulan</option><option value="3">3 Bulan (Diskon 5%)</option><option value="6">6 Bulan (Diskon 10%)</option><option value="12">12 Bulan (Diskon 15%)</option></select>
+      <div class="rincian"><div><span>Harga per bulan</span><b id="rHarga">Rp 0</b></div><div><span>Durasi</span><b id="rDurasi">1 bulan</b></div><div><span>Diskon</span><b id="rDiskon" style="color:#059669">Rp 0</b></div><div class="total"><span>Total yang dibayar</span><b id="rTotal">Rp 0</b></div></div>
+      <button class="btn-utama" onclick="pesan()">✅ Pesan Kamar Ini Sekarang</button>
+    </div>
+  </section>
+
+  <!-- HALAMAN 4: PESANAN SAYA -->
+  <section id="page-pesanan" class="page">
+    <h2>Pesanan Saya</h2>
+    <p class="muted">Ini daftar kos yang sudah kamu pesan.</p>
+    <div id="listPesanan"></div>
+    <div id="pesananKosong" class="kosong">Belum ada pesanan.<br><button class="btn-utama" style="width:auto;padding:12px 20px" onclick="pindah('cari')">Cari Kos Dulu →</button></div>
+  </section>
+
+  <!-- HALAMAN 5: TAMBAH KOS (BUAT PEMILIK) -->
+  <section id="page-tambah" class="page">
+    <h2>Daftarkan Kos Kamu</h2>
+    <p class="muted">Punya kos kosong? Daftarin di sini biar cepet ada yang ngekos.</p>
+    <div class="box">
+      <label>Nama Kos</label><input id="kNama" placeholder="Contoh: Kos Melati Cikarang">
+      <label>Lokasi</label><input id="kLokasi" placeholder="Contoh: Cikarang, dekat Jababeka">
+      <label>Harga per bulan</label><input id="kHarga" type="number" placeholder="Contoh: 900000">
+      <label>Tipe Kos</label><select id="kTipe"><option>Putra</option><option>Putri</option><option>Campur</option></select>
+      <label>Fasilitas (pisahkan pakai koma)</label><input id="kFasilitas" placeholder="Contoh: AC, WiFi, Kamar Mandi Dalam">
+      <button class="btn-utama" onclick="tambahKos()">+ Daftarkan Kos</button>
+    </div>
+  </section>
+
+  <!-- HALAMAN 6: LAPORAN BUAT DOSEN -->
+  <section id="page-laporan" class="page">
+    <h2>Laporan Buat Dosen</h2>
+    <div class="box">
+      <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80" class="laporan-img">
+      <h3>Struktur Data yang dipakai</h3>
+      <p><b>1. Array:</b> Buat nyimpen daftar kos & daftar pesanan. Kayak rak, tiap rak 1 kos.</p>
+      <p><b>2. Searching - Linear Search:</b> Kalau cari "Cikarang", dicek satu-satu dari kos pertama sampai ketemu.</p>
+      <p><b>3. Sorting - Bubble Sort:</b> Kalau urutkan harga termurah, 2 harga bersebelahan dibandingin, kalau kebalik ditukar, diulang sampai rapi.</p>
+      <p><b>4. Queue - Antrian Pesanan:</b> Pesanan masuk antrian, yang pesan duluan dilayani duluan (FIFO).</p>
+      <p id="laporanIsi"></p>
+    </div>
+  </section>
+
+</div>
+
+<nav class="menu">
+  <button id="btn-beranda" class="aktif" onclick="pindah('beranda')"><span>🏠</span>Beranda</button>
+  <button id="btn-cari" onclick="pindah('cari')"><span>🔍</span>Cari Kos</button>
+  <button id="btn-pesanan" onclick="pindah('pesanan')"><span>🧾</span>Pesanan <i id="badgePesanan">0</i></button>
+  <button id="btn-tambah" onclick="pindah('tambah')"><span>➕</span>Jual Kos</button>
+  <button id="btn-laporan" onclick="pindah('laporan')"><span>📄</span>Laporan</button>
+</nav>
+
+<script src="script.js"></script>
+</body>
+</html>
