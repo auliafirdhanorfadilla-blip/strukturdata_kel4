@@ -37,7 +37,8 @@ Pengguna bisa melihat foto kos asli, membandingkan harga, mencari berdasarkan lo
 3.  **Sorting - Bubble Sort** - Mengurutkan harga dengan cara membandingkan 2 harga bersebelahan, kalau kebalik ditukar, diulang sampai rapi.
 4.  **Queue (FIFO)** - Antrian pesanan. Yang pesan duluan, dilayani duluan. Pesanan pertama ada di Antrian No. 1.
 
-## 🔄 Alur Kerja (Flowchart)MULAI -> Buka Beranda -> Lihat Daftar Kos (Array)
+## 🔄 Alur Kerja (Flowchart)
+MULAI -> Buka Beranda -> Lihat Daftar Kos (Array)
 -> Cari Kos (Linear Search) / Urutkan Harga (Bubble Sort)
 -> Klik Kos -> Lihat Detail -> Isi Form Pemesanan
 -> Hitung Total + Diskon -> Simpan Pesanan ke Queue
@@ -49,21 +50,20 @@ Pengguna bisa melihat foto kos asli, membandingkan harga, mencari berdasarkan lo
 
 ├── script.js     -> Semua logika (Cari, Urutkan, Pesan, Simpan)
 
-└── README.md     -> File inijavascript
+└── README.md     -> File ini javascript
 ## ▶️ Cara Menjalankan
 1. Download / copy folder `ngekosin`
 2. Double-click file `index.html`
 3. Otomatis terbuka di Google Chrome, langsung bisa dipakai
 4. Tidak perlu XAMPP, tidak perlu PHP, tidak perlu internet (kecuali untuk load foto)
 
-## 🧪 Cara Demo Ke Dosen (1 Menit)
+## 🧪 Cara Demo
 1. Buka Beranda -> tunjukkan kos populer
 2. Di Cari Kos -> ketik "Cikarang", langsung ke-filter
 3. Urutkan -> pilih "Harga Termurah", data langsung keurut
 4. Klik 1 kos -> isi nama & WA -> pilih 6 bulan -> tunjukkan total & diskon otomatis
 5. Klik Pesan -> pindah ke Pesanan Saya, muncul Antrian No. 1
 
-## 👥 Anggota Kelompok
-- Nama Anggota 1 - NIM
-- Nama Anggota 2 - NIM
-- Nama Anggota 3 - NIM
+## 👥 Anggota Kelompok 4
+- Nama : Aulia Firdha Norfadilla - NIM : 312510186
+- Nama : Dyah Triastini - NIM : 312510166
